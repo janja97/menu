@@ -1,7 +1,5 @@
 <template>
   <div class="p-md-5 content">
-    <img src="./public/pivo/ozujsko.png" alt="">
-    <p>neki text</p>
     <div class="accordion" id="accordionExample">
       <div 
         class="accordion-item" 
@@ -82,7 +80,7 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Exspreso',
-        image: '../public/drink/expreso.png',
+        image: '/public/drink/expreso.png',
         price: 10,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -92,7 +90,7 @@ const drinkCategories = [
       },
       {
         name: 'Kava',
-        image: '../public/drink/caffe.png',
+        image: '/public/drink/caffe.png',
         price: 10,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -102,7 +100,7 @@ const drinkCategories = [
       },
       {
         name: 'Cappuccino',
-        image: '../public/drink/capucino.png',
+        image: '/public/drink/capucino.png',
         price: 12,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -112,7 +110,7 @@ const drinkCategories = [
       },
       {
         name: 'Latte',
-        image: '../public/drink/late.png',
+        image: '/public/drink/late.png',
         price: 14,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -122,7 +120,7 @@ const drinkCategories = [
       },
       {
         name: 'IceCaffe',
-        image: '../public/drink/icecaffe.png',
+        image: '/public/drink/icecaffe.png',
         price: 14,
         class: 'ice',
         animationClass1: 'animation-div1',
@@ -132,7 +130,7 @@ const drinkCategories = [
       },
       {
         name: 'Čaj',
-        image: '../public/drink/tea.png',
+        image: '/public/drink/tea.png',
         price: 8,
         class: 'tea',
         animationClass1: 'animation-div1',
@@ -147,28 +145,28 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Voda',
-        image: '../public/bezalkoholni/vode.png',
+        image: '/public/bezalkoholni/vode.png',
         price: 8,
         class: 'water',
        
       },
       {
         name: 'Voda s okusom',
-        image: '../public/bezalkoholni/vodaSOkusom.png',
+        image: '/public/bezalkoholni/vodaSOkusom.png',
         price: 8,
         class: 'water',
        
       },
       {
         name: 'Mineralna voda',
-        image: '../public/bezalkoholni/mineralna.png',
+        image: '/public/bezalkoholni/mineralna.png',
         price: 8,
         class: 'water',
      
       },
       {
         name: 'Prirodni sokovi',
-        image: '../public/bezalkoholni/vocni.png',
+        image: '/public/bezalkoholni/vocni.png',
         price: 12,
         class: 'juice',
         animationClass1: 'animation-div1',
@@ -178,7 +176,7 @@ const drinkCategories = [
       },
       {
         name: 'Svježe cijedeni sokovi sokovi',
-        image: './public/bezalkoholni/cjedeni.png',
+        image: '/public/bezalkoholni/cjedeni.png',
         price: 12,
         class: 'juice',
         animationClass1: 'animation-div1',
@@ -188,7 +186,7 @@ const drinkCategories = [
       },
       {
         name: 'Gazirani sokovi',
-        image: './public/bezalkoholni/gazirani.png',
+        image: '/public/bezalkoholni/gazirani.png',
         price: 12,
         class: 'juice',
     
@@ -202,58 +200,58 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Karlovačko',
-        image: './public/pivo/karlovacko.png',
+        image: '/public/pivo/karlovacko.png',
         price: 15,
         class: 'beer',
   
       },
       {
         name: 'Ožujsko',
-        image: './public/pivo/ozujsko.png',
+        image: '/public/pivo/ozujsko.png',
         price: 15,
         class: 'beer',
     
       },
       {
         name: 'Heineken',
-        image: './public/pivo/heinken.png',
+        image: '/public/pivo/heinken.png',
         price: 18,
         class: 'beer',
 
       },
       {
         name: 'Paulaner',
-        image: './public/pivo/paul.png',
+        image: '/public/pivo/paul.png',
         price: 20,
         class: 'beer',
       },
       {
         name: 'Guinness',
-        image: './public/pivo/guinniess.png',
+        image: '/public/pivo/guinniess.png',
         price: 22,
         class: 'beer',
       },
       {
         name: 'Corona',
-        image: './public/pivo/corona.png',
+        image: '/public/pivo/corona.png',
         price: 20,
         class: 'beer',
       },
       {
         name: 'Stella Artois',
-        image: './public/pivo/steča.png',
+        image: '/public/pivo/steča.png',
         price: 18,
         class: 'beer',
       },
       {
         name: 'Točeno pivo 0.3L',
-        image: './public/pivo/toceno1.png',
+        image: '/public/pivo/toceno1.png',
         price: 12,
         class: 'beer',
       },
       {
         name: 'Točeno pivo 0.5L',
-        image: './public/pivo/toceno2.png',
+        image: '/public/pivo/toceno2.png',
         price: 18,
         class: 'beer',
       },
@@ -265,7 +263,7 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Dingač',
-        image: './public/vino/dingac.png',
+        image: '/public/vino/dingac.png',
         price: 30, // Po deci
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -275,7 +273,7 @@ const drinkCategories = [
       },
       {
         name: 'Plavac Mali',
-        image: './public/vino/plavac.png',
+        image: '/public/vino/plavac.png',
         price: 25, // Po deci
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -285,7 +283,7 @@ const drinkCategories = [
       },
       {
         name: 'Vranac',
-        image: './public/vino/vranac.png',
+        image: '/public/vino/vranac.png',
         price: 20, // Po deci
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -295,7 +293,7 @@ const drinkCategories = [
       },
       {
         name: 'Graševina',
-        image: './public/vino/grasevina.png',
+        image: '/public/vino/grasevina.png',
         price: 15, // Po deci
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -305,7 +303,7 @@ const drinkCategories = [
       },
       {
         name: 'Domaće bijelo vino 0.2L',
-        image: './public/vino/bijelo.png',
+        image: '/public/vino/bijelo.png',
         price: 10, // Po deci
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -315,7 +313,7 @@ const drinkCategories = [
       },
       {
         name: 'Domaće bijelo vino 1L',
-        image: './public/vino/bijelo.png',
+        image: '/public/vino/bijelo.png',
         price: 70, // Po litri
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -325,7 +323,7 @@ const drinkCategories = [
       },
       {
         name: 'Domaće crno vino 0.2L',
-        image: './public/vino/crno.png',
+        image: '/public/vino/crno.png',
         price: 10, // Po deci
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -335,7 +333,7 @@ const drinkCategories = [
       },
       {
         name: 'Domaće crno vino 1L',
-        image: './public/vinno/crno.png',
+        image: '/public/vinno/crno.png',
         price: 70, // Po litri
         class: 'wine',
         animationClass1: 'animation-div1',
@@ -350,7 +348,7 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Šljivovica',
-        image: './public/drink/sljivovica.png',
+        image: '/public/drink/sljivovica.png',
         price: 20,
         class: 'rakija',
         animationClass1: 'animation-div1',
@@ -360,7 +358,7 @@ const drinkCategories = [
       },
       {
         name: 'Lozovača',
-        image: './public/drink/lozovaca.png',
+        image: '/public/drink/lozovaca.png',
         price: 20,
         class: 'rakija',
         animationClass1: 'animation-div1',
@@ -370,7 +368,7 @@ const drinkCategories = [
       },
       {
         name: 'Medovača',
-        image: './public/drink/medovaca.png',
+        image: '/public/drink/medovaca.png',
         price: 25,
         class: 'rakija',
         animationClass1: 'animation-div1',
@@ -380,7 +378,7 @@ const drinkCategories = [
       },
       {
         name: 'Viljamovka',
-        image: './public/drink/viljamovka.png',
+        image: '/public/drink/viljamovka.png',
         price: 25,
         class: 'rakija',
         animationClass1: 'animation-div1',
@@ -390,7 +388,7 @@ const drinkCategories = [
       },
       {
         name: 'Vinjak',
-        image: './public/drink/vinjak.png',
+        image: '/public/drink/vinjak.png',
         price: 30,
         class: 'vinjak',
         animationClass1: 'animation-div1',
@@ -400,7 +398,7 @@ const drinkCategories = [
       },
       {
         name: 'Konjak',
-        image: './public/drink/konjak.png',
+        image: '/public/drink/konjak.png',
         price: 35,
         class: 'konjak',
         animationClass1: 'animation-div1',
@@ -410,7 +408,7 @@ const drinkCategories = [
       },
       {
         name: 'Likeri - Amaretto',
-        image: './public/drink/amaretto.png',
+        image: '/public/drink/amaretto.png',
         price: 25,
         class: 'liker',
         animationClass1: 'animation-div1',
@@ -420,7 +418,7 @@ const drinkCategories = [
       },
       {
         name: 'Likeri - Baileys',
-        image: './public/drink/baileys.png',
+        image: '/public/drink/baileys.png',
         price: 25,
         class: 'liker',
         animationClass1: 'animation-div1',
@@ -430,7 +428,7 @@ const drinkCategories = [
       },
       {
         name: 'Likeri - Jägermeister',
-        image: './public/drink/jagermeister.png',
+        image: '/public/drink/jagermeister.png',
         price: 25,
         class: 'liker',
         animationClass1: 'animation-div1',
@@ -440,7 +438,7 @@ const drinkCategories = [
       },
       {
         name: 'Likeri - Grand Marnier',
-        image: './public/drink/grandmarnier.png',
+        image: '/public/drink/grandmarnier.png',
         price: 30,
         class: 'liker',
         animationClass1: 'animation-div1',
@@ -455,7 +453,7 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Margarita',
-        image: './public/kokteli/margarita.png',
+        image: '/public/kokteli/margarita.png',
         price: 35,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -465,7 +463,7 @@ const drinkCategories = [
       },
       {
         name: 'Mojito',
-        image: './public/kokteli/mojito.png',
+        image: '/public/kokteli/mojito.png',
         price: 30,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -475,7 +473,7 @@ const drinkCategories = [
       },
       {
         name: 'Pina Colada',
-        image: './public/kokteli/pina.png',
+        image: '/public/kokteli/pina.png',
         price: 35,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -485,7 +483,7 @@ const drinkCategories = [
       },
       {
         name: 'Daiquiri',
-        image: './public/kokteli/daiquiri.png',
+        image: '/public/kokteli/daiquiri.png',
         price: 32,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -495,7 +493,7 @@ const drinkCategories = [
       },
       {
         name: 'Tequila Sunrise',
-        image: './public/kokteli/sunrise.png',
+        image: '/public/kokteli/sunrise.png',
         price: 34,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -505,7 +503,7 @@ const drinkCategories = [
       },
       {
         name: 'Cosmopolitan',
-        image: './public/kokteli/cosmo.png',
+        image: '/public/kokteli/cosmo.png',
         price: 33,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -515,7 +513,7 @@ const drinkCategories = [
       },
       {
         name: 'Mai Tai',
-        image: './public/kokteli/mai.png',
+        image: '/public/kokteli/mai.png',
         price: 36,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -525,7 +523,7 @@ const drinkCategories = [
       },
       {
         name: 'Bloody Mary',
-        image: './public/kokteli/mary.png',
+        image: '/public/kokteli/mary.png',
         price: 32,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -535,7 +533,7 @@ const drinkCategories = [
       },
       {
         name: 'Martini',
-        image: './public/kokteli/martini.png',
+        image: '/public/kokteli/martini.png',
         price: 35,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -545,7 +543,7 @@ const drinkCategories = [
       },
       {
         name: 'Gin Tonic',
-        image: './public/kokteli/tonic.png',
+        image: '/public/kokteli/tonic.png',
         price: 30,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -555,7 +553,7 @@ const drinkCategories = [
       },
       {
         name: 'Long Island Iced Tea',
-        image: './public/kokteli/long.png',
+        image: '/public/kokteli/long.png',
         price: 38,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -565,7 +563,7 @@ const drinkCategories = [
       },
       {
         name: 'Sex on the Beach',
-        image: './public/kokteli/sex.png',
+        image: '/public/kokteli/sex.png',
         price: 36,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -575,7 +573,7 @@ const drinkCategories = [
       },
       {
         name: 'Old Fashioned',
-        image: './public/kokteli/old.png',
+        image: '/public/kokteli/old.png',
         price: 35,
         class: 'cocktail',
         animationClass1: 'animation-div1',
@@ -591,7 +589,7 @@ const drinkCategories = [
   //   drinks: [
   //     {
   //       name: 'Smoothie od jagode',
-  //       image: './public/drink/strawberry-smoothie.png',
+  //       image: '/public/drink/strawberry-smoothie.png',
   //       price: 18,
   //       class: 'smoothie',
   //       animationClass1: 'animation-div1',
@@ -601,7 +599,7 @@ const drinkCategories = [
   //     },
   //     {
   //       name: 'Zdravi doručak',
-  //       image: './public/drink/healthy-breakfast.png',
+  //       image: '/public/drink/healthy-breakfast.png',
   //       price: 25,
   //       class: 'breakfast',
   //       animationClass1: 'animation-div1',
