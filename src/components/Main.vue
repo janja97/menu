@@ -80,7 +80,7 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Exspreso',
-        image: '/public/drink/expreso.png',
+        image: '../public/drink/expreso.png',
         price: 10,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -90,7 +90,7 @@ const drinkCategories = [
       },
       {
         name: 'Kava',
-        image: '/public/drink/caffe.png',
+        image: '../public/drink/caffe.png',
         price: 10,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -100,7 +100,7 @@ const drinkCategories = [
       },
       {
         name: 'Cappuccino',
-        image: '/public/drink/capucino.png',
+        image: '../public/drink/capucino.png',
         price: 12,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -110,7 +110,7 @@ const drinkCategories = [
       },
       {
         name: 'Latte',
-        image: '/public/drink/late.png',
+        image: '../public/drink/late.png',
         price: 14,
         class: 'kava',
         animationClass1: 'animation-div1',
@@ -120,7 +120,7 @@ const drinkCategories = [
       },
       {
         name: 'IceCaffe',
-        image: '/public/drink/icecaffe.png',
+        image: '../public/drink/icecaffe.png',
         price: 14,
         class: 'ice',
         animationClass1: 'animation-div1',
@@ -130,7 +130,7 @@ const drinkCategories = [
       },
       {
         name: 'Čaj',
-        image: '/public/drink/tea.png',
+        image: '../public/drink/tea.png',
         price: 8,
         class: 'tea',
         animationClass1: 'animation-div1',
