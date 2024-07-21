@@ -1,33 +1,18 @@
 <template>
   <div class="p-md-5 content">
     <div class="accordion" id="accordionExample">
-      <div 
-        class="accordion-item" 
-        v-for="(category, catIndex) in drinkCategories" 
-        :key="catIndex"
-      >
+      <!-- topli napici i kave -->
+      <div class="accordion-item">
         <h2 class="accordion-header">
-          <button 
-            class="accordion-button" 
-            type="button" 
-            :data-bs-toggle="'collapse'" 
-            :data-bs-target="'#collapse' + catIndex" 
-            :aria-expanded="catIndex === 0 ? 'true' : 'false'" 
-            :aria-controls="'collapse' + catIndex"
-          >
-            {{ category.name }}
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Topli napici i kave
           </button>
         </h2>
-        <div 
-          :id="'collapse' + catIndex" 
-          class="accordion-collapse collapse" 
-          :class="{ show: catIndex === 0 }" 
-          data-bs-parent="#accordionExample"
-        >
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
           <div class="cards d-none d-md-flex flex-wrap">
             <div 
               class="card d-flex" 
-              v-for="(drink, index) in category.drinks" 
+              v-for="(drink, index) in kaveITopliNapici" 
               :key="index"
             >
               <img :src="drink.image" class="card-img" :alt="drink.name">
@@ -39,7 +24,247 @@
           </div>
           <div class="accordion-body d-md-none">
             <carousel :items-to-show="1">
-              <slide v-for="(drink, index) in category.drinks" :key="index">
+              <slide v-for="(drink, index) in kaveITopliNapici" :key="index">
+                <div class="carousel-body">
+                  <div v-if="drink.animationClass1" :class="drink.animationClass1">
+                    <img :src="drink.animationImage1" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div v-if="drink.animationClass2" :class="drink.animationClass2">
+                    <img :src="drink.animationImage2" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div class="content-div">
+                    <img :src="drink.image" alt="Drink Image" class="carousel-img">
+                    <div class="text-center mt-2 pt-2">
+                      <h5 class="title">{{ drink.name }}</h5>
+                      <p class="price">{{ drink.price }} HRK</p>
+                    </div>
+                  </div>
+                </div>
+              </slide>
+              <template #addons>
+                <pagination />
+                <navigation />
+              </template>
+            </carousel>
+          </div>
+        </div>
+      </div>
+      <!-- bezalkoholno -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Voda i sokovi
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="cards d-none d-md-flex flex-wrap">
+            <div 
+              class="card d-flex" 
+              v-for="(drink, index) in bezalkoholnaPica" 
+              :key="index"
+            >
+              <img :src="drink.image" class="card-img" :alt="drink.name">
+              <div class="card-body">
+                <h5 class="card-title">{{ drink.name }}</h5>
+                <p class="card-text">{{ drink.price }} HRK</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-body d-md-none">
+            <carousel :items-to-show="1">
+              <slide v-for="(drink, index) in bezalkoholnaPica" :key="index">
+                <div class="carousel-body">
+                  <div v-if="drink.animationClass1" :class="drink.animationClass1">
+                    <img :src="drink.animationImage1" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div v-if="drink.animationClass2" :class="drink.animationClass2">
+                    <img :src="drink.animationImage2" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div class="content-div">
+                    <img :src="drink.image" alt="Drink Image" class="carousel-img">
+                    <div class="text-center mt-2 pt-2">
+                      <h5 class="title">{{ drink.name }}</h5>
+                      <p class="price">{{ drink.price }} HRK</p>
+                    </div>
+                  </div>
+                </div>
+              </slide>
+              <template #addons>
+                <pagination />
+                <navigation />
+              </template>
+            </carousel>
+          </div>
+        </div>
+      </div>
+      <!-- pive -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Pive
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="cards d-none d-md-flex flex-wrap">
+            <div 
+              class="card d-flex" 
+              v-for="(drink, index) in pive" 
+              :key="index"
+            >
+              <img :src="drink.image" class="card-img" :alt="drink.name">
+              <div class="card-body">
+                <h5 class="card-title">{{ drink.name }}</h5>
+                <p class="card-text">{{ drink.price }} HRK</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-body d-md-none">
+            <carousel :items-to-show="1">
+              <slide v-for="(drink, index) in pive" :key="index">
+                <div class="carousel-body">
+                  <div v-if="drink.animationClass1" :class="drink.animationClass1">
+                    <img :src="drink.animationImage1" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div v-if="drink.animationClass2" :class="drink.animationClass2">
+                    <img :src="drink.animationImage2" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div class="content-div">
+                    <img :src="drink.image" alt="Drink Image" class="carousel-img">
+                    <div class="text-center mt-2 pt-2">
+                      <h5 class="title">{{ drink.name }}</h5>
+                      <p class="price">{{ drink.price }} HRK</p>
+                    </div>
+                  </div>
+                </div>
+              </slide>
+              <template #addons>
+                <pagination />
+                <navigation />
+              </template>
+            </carousel>
+          </div>
+        </div>
+      </div>
+      <!-- Vina -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Vina
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="cards d-none d-md-flex flex-wrap">
+            <div 
+              class="card d-flex" 
+              v-for="(drink, index) in vina" 
+              :key="index"
+            >
+              <img :src="drink.image" class="card-img" :alt="drink.name">
+              <div class="card-body">
+                <h5 class="card-title">{{ drink.name }}</h5>
+                <p class="card-text">{{ drink.price }} HRK</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-body d-md-none">
+            <carousel :items-to-show="1">
+              <slide v-for="(drink, index) in vina" :key="index">
+                <div class="carousel-body">
+                  <div v-if="drink.animationClass1" :class="drink.animationClass1">
+                    <img :src="drink.animationImage1" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div v-if="drink.animationClass2" :class="drink.animationClass2">
+                    <img :src="drink.animationImage2" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div class="content-div">
+                    <img :src="drink.image" alt="Drink Image" class="carousel-img">
+                    <div class="text-center mt-2 pt-2">
+                      <h5 class="title">{{ drink.name }}</h5>
+                      <p class="price">{{ drink.price }} HRK</p>
+                    </div>
+                  </div>
+                </div>
+              </slide>
+              <template #addons>
+                <pagination />
+                <navigation />
+              </template>
+            </carousel>
+          </div>
+        </div>
+      </div>
+      <!-- alkohol -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Kratka alkoholna pića
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="cards d-none d-md-flex flex-wrap">
+            <div 
+              class="card d-flex" 
+              v-for="(drink, index) in alkohol" 
+              :key="index"
+            >
+              <img :src="drink.image" class="card-img" :alt="drink.name">
+              <div class="card-body">
+                <h5 class="card-title">{{ drink.name }}</h5>
+                <p class="card-text">{{ drink.price }} HRK</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-body d-md-none">
+            <carousel :items-to-show="1">
+              <slide v-for="(drink, index) in alkohol" :key="index">
+                <div class="carousel-body">
+                  <div v-if="drink.animationClass1" :class="drink.animationClass1">
+                    <img :src="drink.animationImage1" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div v-if="drink.animationClass2" :class="drink.animationClass2">
+                    <img :src="drink.animationImage2" class="kave col-12" :alt="drink.name">
+                  </div>
+                  <div class="content-div">
+                    <img :src="drink.image" alt="Drink Image" class="carousel-img">
+                    <div class="text-center mt-2 pt-2">
+                      <h5 class="title">{{ drink.name }}</h5>
+                      <p class="price">{{ drink.price }} HRK</p>
+                    </div>
+                  </div>
+                </div>
+              </slide>
+              <template #addons>
+                <pagination />
+                <navigation />
+              </template>
+            </carousel>
+          </div>
+        </div>
+      </div>
+      <!-- kokteli -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+           Kokteli
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="cards d-none d-md-flex flex-wrap">
+            <div 
+              class="card d-flex" 
+              v-for="(drink, index) in kokteli" 
+              :key="index"
+            >
+              <img :src="drink.image" class="card-img" :alt="drink.name">
+              <div class="card-body">
+                <h5 class="card-title">{{ drink.name }}</h5>
+                <p class="card-text">{{ drink.price }} HRK</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-body d-md-none">
+            <carousel :items-to-show="1">
+              <slide v-for="(drink, index) in kokteli" :key="index">
                 <div class="carousel-body">
                   <div v-if="drink.animationClass1" :class="drink.animationClass1">
                     <img :src="drink.animationImage1" class="kave col-12" :alt="drink.name">
@@ -74,542 +299,518 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 // Definiramo kategorije pića i njihova pića
-const drinkCategories = [
+const kaveITopliNapici = [
   {
-    name: 'Kave i Topli napici',
-    drinks: [
-      {
-        name: 'Exspreso',
-        image: '/drink/expreso.png',
-        price: 10,
-        class: 'kava',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/kava2.png',
-        animationImage2: '/drink/kava3.png',
-      },
-      {
-        name: 'Kava',
-        image: '/drink/caffe.png',
-        price: 10,
-        class: 'kava',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/kava2.png',
-        animationImage2: '/drink/kava3.png',
-      },
-      {
-        name: 'Cappuccino',
-        image: '/drink/capucino.png',
-        price: 12,
-        class: 'kava',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/kava2.png',
-        animationImage2: '/drink/kava3.png',
-      },
-      {
-        name: 'Latte',
-        image: '/drink/late.png',
-        price: 14,
-        class: 'kava',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/kava2.png',
-        animationImage2: '/drink/kava3.png',
-      },
-      {
-        name: 'IceCaffe',
-        image: '/drink/icecaffe.png',
-        price: 14,
-        class: 'ice',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/kava2.png',
-        animationImage2: '/drink/ice.png',
-      },
-      {
-        name: 'Čaj',
-        image: '/drink/tea.png',
-        price: 8,
-        class: 'tea',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/tea1.png',
-        animationImage2: '/drink/tea1.png',
-      },
-    ],
+    name: 'Exspreso',
+    image: '/drink/expreso.png',
+    price: 10,
+    class: 'kava',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/kava2.png',
+    animationImage2: '/drink/kava3.png',
   },
   {
-    name: 'Bezalkoholna pića',
-    drinks: [
-      {
-        name: 'Voda',
-        image: '/bezalkoholni/vode.png',
-        price: 8,
-        class: 'water',
-       
-      },
-      {
-        name: 'Voda s okusom',
-        image: '/bezalkoholni/vodaSOkusom.png',
-        price: 8,
-        class: 'water',
-       
-      },
-      {
-        name: 'Mineralna voda',
-        image: '/bezalkoholni/mineralna.png',
-        price: 8,
-        class: 'water',
-     
-      },
-      {
-        name: 'Prirodni sokovi',
-        image: '/bezalkoholni/vocni.png',
-        price: 12,
-        class: 'juice',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/orange1.png',
-        animationImage2: '/drink/orange2.png',
-      },
-      {
-        name: 'Svježe cijedeni sokovi sokovi',
-        image: '/bezalkoholni/cjedeni.png',
-        price: 12,
-        class: 'juice',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/orange1.png',
-        animationImage2: '/drink/orange2.png',
-      },
-      {
-        name: 'Gazirani sokovi',
-        image: '/bezalkoholni/gazirani.png',
-        price: 12,
-        class: 'juice',
+    name: 'Kava',
+    image: '/drink/caffe.png',
+    price: 10,
+    class: 'kava',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/kava2.png',
+    animationImage2: '/drink/kava3.png',
+  },
+  {
+    name: 'Cappuccino',
+    image: '/drink/capucino.png',
+    price: 12,
+    class: 'kava',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/kava2.png',
+    animationImage2: '/drink/kava3.png',
+  },
+  {
+    name: 'Latte',
+    image: '/drink/late.png',
+    price: 14,
+    class: 'kava',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/kava2.png',
+    animationImage2: '/drink/kava3.png',
+  },
+  {
+    name: 'IceCaffe',
+    image: '/drink/icecaffe.png',
+    price: 14,
+    class: 'ice',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/kava2.png',
+    animationImage2: '/drink/ice.png',
+  },
+  {
+    name: 'Čaj',
+    image: '/drink/tea.png',
+    price: 8,
+    class: 'tea',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/tea1.png',
+    animationImage2: '/drink/tea1.png',
+  },
+];
+
+const bezalkoholnaPica = [
+  {
+    name: 'Voda',
+    image: '/bezalkoholni/vode.png',
+    price: 8,
+    class: 'water',
+  },
+  {
+    name: 'Voda s okusom',
+    image: '/bezalkoholni/vodaSOkusom.png',
+    price: 8,
+    class: 'water',
+  },
+  {
+    name: 'Mineralna voda',
+    image: '/bezalkoholni/mineralna.png',
+    price: 8,
+    class: 'water',
+  },
+  {
+    name: 'Prirodni sokovi',
+    image: '/bezalkoholni/vocni.png',
+    price: 12,
+    class: 'juice',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/orange1.png',
+    animationImage2: '/drink/orange2.png',
+  },
+  {
+    name: 'Svježe cijedeni sokovi sokovi',
+    image: '/bezalkoholni/cjedeni.png',
+    price: 12,
+    class: 'juice',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/orange1.png',
+    animationImage2: '/drink/orange2.png',
+  },
+  {
+    name: 'Gazirani sokovi',
+    image: '/bezalkoholni/gazirani.png',
+    price: 12,
+    class: 'juice',
+  },
+  // Dodajte ostala bezalkoholna pića ovde...
+];
+
+const pive = [
+  {
+    name: 'Karlovačko',
+    image: '/pivo/karlovacko.png',
+    price: 15,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Ožujsko',
+    image: '/pivo/ozujsko.png',
+    price: 15,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Heineken',
+    image: '/pivo/heinken.png',
+    price: 18,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Paulaner',
+    image: '/pivo/paul.png',
+    price: 20,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Guinness',
+    image: '/pivo/guinniess.png',
+    price: 22,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Corona',
+    image: '/pivo/corona.png',
+    price: 20,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Stella Artois',
+    image: '/pivo/steča.png',
+    price: 18,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Točeno pivo 0.3L',
+    image: '/pivo/toceno1.png',
+    price: 12,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  {
+    name: 'Točeno pivo 0.5L',
+    image: '/pivo/toceno2.png',
+    price: 18,
+    class: 'beer',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/pivo/psenica1.png',
+    animationImage2: '/pivo/psenica2.png',
+  },
+  // Dodajte ostala piva ovde...
+];
+
+const vina = [
+  {
+    name: 'Dingač',
+    image: '/vino/dingač.png',
+    price: 30, // Po deci
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/dingac1.png',
+    animationImage2: '/drink/dingac2.png',
+  },
+  {
+    name: 'Plavac Mali',
+    image: '/vino/plavac.png',
+    price: 25, // Po deci
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/plavac1.png',
+    animationImage2: '/drink/plavac2.png',
+  },
+  {
+    name: 'Vranac',
+    image: '/vino/vranac.png',
+    price: 20, // Po deci
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/vranac1.png',
+    animationImage2: '/drink/vranac2.png',
+  },
+  {
+    name: 'Graševina',
+    image: '/vino/grasevina.png',
+    price: 15, // Po deci
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/grasevina1.png',
+    animationImage2: '/drink/grasevina2.png',
+  },
+  {
+    name: 'Domaće bijelo vino 0.2L',
+    image: '/vino/bijelo.png',
+    price: 10,
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/bijelo1.png',
+    animationImage2: '/drink/bijelo2.png',
+  },
+  {
+    name: 'Domaće crno vino 0.2L',
+    image: '/vino/crno.png',
+    price: 10,
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/crno1.png',
+    animationImage2: '/drink/crno2.png',
+  },
+  {
+    name: 'Rose',
+    image: '/vino/rose.png',
+    price: 20,
+    class: 'wine',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/rose1.png',
+    animationImage2: '/drink/rose2.png',
+  },
+  // Dodajte ostala vina ovde...
+];
+const alkohol = [
+  {
+    name: 'Šljivovica',
+    image: '/drink/sljivovica.png',
+    price: 20,
+    class: 'rakija',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/sljivovica1.png',
+    animationImage2: '/drink/sljivovica2.png',
+  },
+  {
+    name: 'Lozovača',
+    image: '/drink/lozovaca.png',
+    price: 20,
+    class: 'rakija',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/lozovaca1.png',
+    animationImage2: '/drink/lozovaca2.png',
+  },
+  {
+    name: 'Medovača',
+    image: '/drink/medovaca.png',
+    price: 25,
+    class: 'rakija',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/medovaca1.png',
+    animationImage2: '/drink/medovaca2.png',
+  },
+  {
+    name: 'Viljamovka',
+    image: '/drink/viljamovka.png',
+    price: 25,
+    class: 'rakija',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/viljamovka1.png',
+    animationImage2: '/drink/viljamovka2.png',
+  },
+  {
+    name: 'Vinjak',
+    image: '/drink/vinjak.png',
+    price: 30,
+    class: 'vinjak',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/vinjak1.png',
+    animationImage2: '/drink/vinjak2.png',
+  },
+  {
+    name: 'Konjak',
+    image: '/drink/konjak.png',
+    price: 35,
+    class: 'konjak',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/konjak1.png',
+    animationImage2: '/drink/konjak2.png',
+  },
+  {
+    name: 'Likeri - Amaretto',
+    image: '/drink/amaretto.png',
+    price: 25,
+    class: 'liker',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/amaretto1.png',
+    animationImage2: '/drink/amaretto2.png',
+  },
+  {
+    name: 'Likeri - Baileys',
+    image: '/drink/baileys.png',
+    price: 25,
+    class: 'liker',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/baileys1.png',
+    animationImage2: '/drink/baileys2.png',
+  },
+  {
+    name: 'Likeri - Jägermeister',
+    image: '/drink/jagermeister.png',
+    price: 25,
+    class: 'liker',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/jagermeister1.png',
+    animationImage2: '/drink/jagermeister2.png',
+  },
+  {
+    name: 'Likeri - Grand Marnier',
+    image: '/drink/grandmarnier.png',
+    price: 30,
+    class: 'liker',
+    animationClass1: 'animation-div1',
+    animationClass2: 'animation-div2',
+    animationImage1: '/drink/grandmarnier1.png',
+    animationImage2: '/drink/grandmarnier2.png',
+  },
     
-      },
-
-      // Dodajte ostala bezalkoholna pića ovde...
-    ],
-  },
-  {
-    name: 'Pive',
-    drinks: [
-      {
-        name: 'Karlovačko',
-        image: '/pivo/karlovacko.png',
-        price: 15,
-        class: 'beer',
-  
-      },
-      {
-        name: 'Ožujsko',
-        image: '/pivo/ozujsko.png',
-        price: 15,
-        class: 'beer',
-    
-      },
-      {
-        name: 'Heineken',
-        image: '/pivo/heinken.png',
-        price: 18,
-        class: 'beer',
-
-      },
-      {
-        name: 'Paulaner',
-        image: '/pivo/paul.png',
-        price: 20,
-        class: 'beer',
-      },
-      {
-        name: 'Guinness',
-        image: '/pivo/guinniess.png',
-        price: 22,
-        class: 'beer',
-      },
-      {
-        name: 'Corona',
-        image: '/pivo/corona.png',
-        price: 20,
-        class: 'beer',
-      },
-      {
-        name: 'Stella Artois',
-        image: '/pivo/steča.png',
-        price: 18,
-        class: 'beer',
-      },
-      {
-        name: 'Točeno pivo 0.3L',
-        image: '/pivo/toceno1.png',
-        price: 12,
-        class: 'beer',
-      },
-      {
-        name: 'Točeno pivo 0.5L',
-        image: '/pivo/toceno2.png',
-        price: 18,
-        class: 'beer',
-      },
-      // Dodajte ostala alkoholna pića ovde...
-    ],
-  },
-  {
-    name: 'Vina',
-    drinks: [
-      {
-        name: 'Dingač',
-        image: '/vino/dingac.png',
-        price: 30, // Po deci
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/dingac1.png',
-        animationImage2: '/drink/dingac2.png',
-      },
-      {
-        name: 'Plavac Mali',
-        image: '/vino/plavac.png',
-        price: 25, // Po deci
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/plavac1.png',
-        animationImage2: '/drink/plavac2.png',
-      },
-      {
-        name: 'Vranac',
-        image: '/vino/vranac.png',
-        price: 20, // Po deci
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/vranac1.png',
-        animationImage2: '/drink/vranac2.png',
-      },
-      {
-        name: 'Graševina',
-        image: '/vino/grasevina.png',
-        price: 15, // Po deci
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/grasevina1.png',
-        animationImage2: '/drink/grasevina2.png',
-      },
-      {
-        name: 'Domaće bijelo vino 0.2L',
-        image: '/vino/bijelo.png',
-        price: 10, // Po deci
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/domace-bijelo1.png',
-        animationImage2: '/drink/domace-bijelo2.png',
-      },
-      {
-        name: 'Domaće bijelo vino 1L',
-        image: '/vino/bijelo.png',
-        price: 70, // Po litri
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/domace-bijelo1.png',
-        animationImage2: '/drink/domace-bijelo2.png',
-      },
-      {
-        name: 'Domaće crno vino 0.2L',
-        image: '/vino/crno.png',
-        price: 10, // Po deci
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/domace-crno1.png',
-        animationImage2: '/drink/domace-crno2.png',
-      },
-      {
-        name: 'Domaće crno vino 1L',
-        image: '/vinno/crno.png',
-        price: 70, // Po litri
-        class: 'wine',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/domace-crno1.png',
-        animationImage2: '/drink/domace-crno2.png',
-      },
-    ],
-  },
-  {
-    name: 'Alkoholna pića',
-    drinks: [
-      {
-        name: 'Šljivovica',
-        image: '/drink/sljivovica.png',
-        price: 20,
-        class: 'rakija',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/sljivovica1.png',
-        animationImage2: '/drink/sljivovica2.png',
-      },
-      {
-        name: 'Lozovača',
-        image: '/drink/lozovaca.png',
-        price: 20,
-        class: 'rakija',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/lozovaca1.png',
-        animationImage2: '/drink/lozovaca2.png',
-      },
-      {
-        name: 'Medovača',
-        image: '/drink/medovaca.png',
-        price: 25,
-        class: 'rakija',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/medovaca1.png',
-        animationImage2: '/drink/medovaca2.png',
-      },
-      {
-        name: 'Viljamovka',
-        image: '/drink/viljamovka.png',
-        price: 25,
-        class: 'rakija',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/viljamovka1.png',
-        animationImage2: '/drink/viljamovka2.png',
-      },
-      {
-        name: 'Vinjak',
-        image: '/drink/vinjak.png',
-        price: 30,
-        class: 'vinjak',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/vinjak1.png',
-        animationImage2: '/drink/vinjak2.png',
-      },
-      {
-        name: 'Konjak',
-        image: '/drink/konjak.png',
-        price: 35,
-        class: 'konjak',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/konjak1.png',
-        animationImage2: '/drink/konjak2.png',
-      },
-      {
-        name: 'Likeri - Amaretto',
-        image: '/drink/amaretto.png',
-        price: 25,
-        class: 'liker',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/amaretto1.png',
-        animationImage2: '/drink/amaretto2.png',
-      },
-      {
-        name: 'Likeri - Baileys',
-        image: '/drink/baileys.png',
-        price: 25,
-        class: 'liker',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/baileys1.png',
-        animationImage2: '/drink/baileys2.png',
-      },
-      {
-        name: 'Likeri - Jägermeister',
-        image: '/drink/jagermeister.png',
-        price: 25,
-        class: 'liker',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/jagermeister1.png',
-        animationImage2: '/drink/jagermeister2.png',
-      },
-      {
-        name: 'Likeri - Grand Marnier',
-        image: '/drink/grandmarnier.png',
-        price: 30,
-        class: 'liker',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/grandmarnier1.png',
-        animationImage2: '/drink/grandmarnier2.png',
-      },
-    ],
-  },
-  {
-    name: 'Kokteli',
-    drinks: [
-      {
-        name: 'Margarita',
-        image: '/kokteli/margarita.png',
-        price: 35,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/margarita1.png',
-        animationImage2: '/drink/margarita2.png',
-      },
-      {
-        name: 'Mojito',
-        image: '/kokteli/mojito.png',
-        price: 30,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/mojito1.png',
-        animationImage2: '/drink/mojito2.png',
-      },
-      {
-        name: 'Pina Colada',
-        image: '/kokteli/pina.png',
-        price: 35,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/pinacolada1.png',
-        animationImage2: '/drink/pinacolada2.png',
-      },
-      {
-        name: 'Daiquiri',
-        image: '/kokteli/daiquiri.png',
-        price: 32,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/daiquiri1.png',
-        animationImage2: '/drink/daiquiri2.png',
-      },
-      {
-        name: 'Tequila Sunrise',
-        image: '/kokteli/sunrise.png',
-        price: 34,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/tequilasunrise1.png',
-        animationImage2: '/drink/tequilasunrise2.png',
-      },
-      {
-        name: 'Cosmopolitan',
-        image: '/kokteli/cosmo.png',
-        price: 33,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/cosmopolitan1.png',
-        animationImage2: '/drink/cosmopolitan2.png',
-      },
-      {
-        name: 'Mai Tai',
-        image: '/kokteli/mai.png',
-        price: 36,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/maitai1.png',
-        animationImage2: '/drink/maitai2.png',
-      },
-      {
-        name: 'Bloody Mary',
-        image: '/kokteli/mary.png',
-        price: 32,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/bloodymary1.png',
-        animationImage2: '/drink/bloodymary2.png',
-      },
-      {
-        name: 'Martini',
-        image: '/kokteli/martini.png',
-        price: 35,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/martini1.png',
-        animationImage2: '/drink/martini2.png',
-      },
-      {
-        name: 'Gin Tonic',
-        image: '/kokteli/tonic.png',
-        price: 30,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/gintonic1.png',
-        animationImage2: '/drink/gintonic2.png',
-      },
-      {
-        name: 'Long Island Iced Tea',
-        image: '/kokteli/long.png',
-        price: 38,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/longisland1.png',
-        animationImage2: '/drink/longisland2.png',
-      },
-      {
-        name: 'Sex on the Beach',
-        image: '/kokteli/sex.png',
-        price: 36,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/sexonthebeach1.png',
-        animationImage2: '/drink/sexonthebeach2.png',
-      },
-      {
-        name: 'Old Fashioned',
-        image: '/kokteli/old.png',
-        price: 35,
-        class: 'cocktail',
-        animationClass1: 'animation-div1',
-        animationClass2: 'animation-div2',
-        animationImage1: '/drink/oldfashioned1.png',
-        animationImage2: '/drink/oldfashioned2.png',
-      },
-    ],
-  },
-
-  // {
-  //   name: 'Smoothie i zdravi doručak',
-  //   drinks: [
-  //     {
-  //       name: 'Smoothie od jagode',
-  //       image: '/drink/strawberry-smoothie.png',
-  //       price: 18,
-  //       class: 'smoothie',
-  //       animationClass1: 'animation-div1',
-  //       animationClass2: 'animation-div2',
-  //       animationImage1: '/drink/smoothie1.png',
-  //       animationImage2: '/drink/smoothie2.png',
-  //     },
-  //     {
-  //       name: 'Zdravi doručak',
-  //       image: '/drink/healthy-breakfast.png',
-  //       price: 25,
-  //       class: 'breakfast',
-  //       animationClass1: 'animation-div1',
-  //       animationClass2: 'animation-div2',
-  //       animationImage1: '/drink/breakfast1.png',
-  //       animationImage2: '/drink/breakfast2.png',
-  //     },
-  //     // Dodajte ostale smoothie i zdravi doručak ovde...
-  //   ],
-  // },
+];
+const kokteli = [
+    {
+      name: 'Margarita',
+      image: '/kokteli/margarita.png',
+      price: 35,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/margarita1.png',
+      animationImage2: '/drink/margarita2.png',
+    },
+    {
+      name: 'Mojito',
+      image: '/kokteli/mojito.png',
+      price: 30,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/mojito1.png',
+      animationImage2: '/drink/mojito2.png',
+    },
+    {
+      name: 'Pina Colada',
+      image: '/kokteli/pina.png',
+      price: 35,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/pinacolada1.png',
+      animationImage2: '/drink/pinacolada2.png',
+    },
+    {
+      name: 'Daiquiri',
+      image: '/kokteli/daiquiri.png',
+      price: 32,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/daiquiri1.png',
+      animationImage2: '/drink/daiquiri2.png',
+    },
+    {
+      name: 'Tequila Sunrise',
+      image: '/kokteli/sunrise.png',
+      price: 34,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/tequilasunrise1.png',
+      animationImage2: '/drink/tequilasunrise2.png',
+    },
+    {
+      name: 'Cosmopolitan',
+      image: '/kokteli/cosmo.png',
+      price: 33,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/cosmopolitan1.png',
+      animationImage2: '/drink/cosmopolitan2.png',
+    },
+    {
+      name: 'Mai Tai',
+      image: '/kokteli/mai.png',
+      price: 36,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/maitai1.png',
+      animationImage2: '/drink/maitai2.png',
+    },
+    {
+      name: 'Bloody Mary',
+      image: '/kokteli/mary.png',
+      price: 32,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/bloodymary1.png',
+      animationImage2: '/drink/bloodymary2.png',
+    },
+    {
+      name: 'Martini',
+      image: '/kokteli/martini.png',
+      price: 35,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/martini1.png',
+      animationImage2: '/drink/martini2.png',
+    },
+    {
+      name: 'Gin Tonic',
+      image: '/kokteli/tonic.png',
+      price: 30,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/gintonic1.png',
+      animationImage2: '/drink/gintonic2.png',
+    },
+    {
+      name: 'Long Island Iced Tea',
+      image: '/kokteli/long.png',
+      price: 38,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/longisland1.png',
+      animationImage2: '/drink/longisland2.png',
+    },
+    {
+      name: 'Sex on the Beach',
+      image: '/kokteli/sex.png',
+      price: 36,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/sexonthebeach1.png',
+      animationImage2: '/drink/sexonthebeach2.png',
+    },
+    {
+      name: 'Old Fashioned',
+      image: '/kokteli/old.png',
+      price: 35,
+      class: 'cocktail',
+      animationClass1: 'animation-div1',
+      animationClass2: 'animation-div2',
+      animationImage1: '/drink/oldfashioned1.png',
+      animationImage2: '/drink/oldfashioned2.png',
+    },
 ]
 </script>
 
