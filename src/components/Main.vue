@@ -145,28 +145,28 @@ const drinkCategories = [
     drinks: [
       {
         name: 'Voda',
-        image: './public/bezalkoholni/vode.png',
+        image: '../public/bezalkoholni/vode.png',
         price: 8,
         class: 'water',
        
       },
       {
         name: 'Voda s okusom',
-        image: './public/bezalkoholni/vodaSOkusom.png',
+        image: '../public/bezalkoholni/vodaSOkusom.png',
         price: 8,
         class: 'water',
        
       },
       {
         name: 'Mineralna voda',
-        image: './public/bezalkoholni/mineralna.png',
+        image: '../public/bezalkoholni/mineralna.png',
         price: 8,
         class: 'water',
      
       },
       {
         name: 'Prirodni sokovi',
-        image: './public/bezalkoholni/vocni.png',
+        image: '../public/bezalkoholni/vocni.png',
         price: 12,
         class: 'juice',
         animationClass1: 'animation-div1',
