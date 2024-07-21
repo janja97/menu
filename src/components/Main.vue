@@ -1,6 +1,7 @@
 <template>
   <div class="p-md-5 content">
     <img src="./public/pivo/ozujsko.png" alt="">
+    <p>neki text</p>
     <div class="accordion" id="accordionExample">
       <div 
         class="accordion-item" 
